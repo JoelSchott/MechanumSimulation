@@ -26,5 +26,21 @@ public class Display {
         frame.setResizable(false);
         frame.setVisible(true);
         frame.pack();
+
+        boolean running = true;
+        while (running){
+            frame.repaint();
+
+            robot.setFrontRightMagnitude(buttonPanel.frontRightMagnitude());
+            robot.setFrontLeftMagnitude(buttonPanel.frontLeftMagnitude());
+            robot.setBackLeftMagnitude(buttonPanel.backLeftMagnitude());
+            robot.setBackRightMagnitude(buttonPanel.backRightMagnitude());
+
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
